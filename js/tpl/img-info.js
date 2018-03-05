@@ -1,4 +1,4 @@
-export default class ImgJsonInfo {
+export default class ImgInfo {
   /**
    *
    * @param {Object} raw
@@ -59,7 +59,7 @@ export default class ImgJsonInfo {
     this.ratio = raw['ratio']
 
     /**
-     * @type {Object}
+     * @type {!Object}
      * @private
      */
     this.sizes = raw['sizes']
@@ -145,7 +145,7 @@ export default class ImgJsonInfo {
 
   /**
    *
-   * @return {Object}
+   * @return {!Object}
    */
   getSizes () {
     return this.sizes
@@ -155,8 +155,8 @@ export default class ImgJsonInfo {
    *
    * @return {number}
    */
-  getMaxSize() {
-    const sizes = /** @type {Array.<number>} */ (Object.values(this.sizes))
+  getMaxSize () {
+    const sizes = /** @type {!Array.<number>} */ (Object.values(this.sizes))
 
     return Math.max(...sizes)
   }

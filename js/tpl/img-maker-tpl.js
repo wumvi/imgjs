@@ -1,6 +1,9 @@
-import ImageObject from './jsonld/image-object.js'
-import ImgJsonInfo from './img-json-info.js'
+import ImageObject from '../jsonld/image-object'
+import ImgJsonInfo from './img-info'
 
+/**
+ * @export
+ */
 export default class ImgMakerTpl {
   /**
    *
@@ -22,6 +25,8 @@ export default class ImgMakerTpl {
    * @param {boolean} isRepresentativeOfPage
    *
    * @return {string}
+   *
+   * @export
    */
   getTpl (imgFullId, isMetadata, isRepresentativeOfPage) {
     const pad = '000000'
@@ -39,7 +44,7 @@ export default class ImgMakerTpl {
       throw new Error('Error load ' + infoJsonUrl)
     }
 
-    const imgInfo = JSON.parse(xhr.responseText)
+    const imgInfo = /** @type {Object} */ (JSON.parse(xhr.responseText))
     const imgJsonInfo = new ImgJsonInfo(imgInfo)
 
     const sizesObject = []

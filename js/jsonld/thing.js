@@ -84,7 +84,7 @@ export default class Thing extends Model {
       data['description'] = this.description
     }
 
-    return Object.assign({}, data, super.getProperties())
+    return data
   }
 
   /**

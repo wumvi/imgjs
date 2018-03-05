@@ -1,10 +1,9 @@
 export default class Size {
   /**
    *
-   * @param {Object} size
+   * @param {!Object} size
    */
   constructor (size) {
-
     const media = /** @type {string} */ (Object.keys(size)[0])
 
     /**

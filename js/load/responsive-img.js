@@ -1,16 +1,22 @@
-import ImgItem from './img-item.js'
+// @externs common
 
+import ImgItem from './item.js'
+
+/**
+ * @export
+ */
 export default class ResponsiveImg {
   /**
    *
    */
   constructor () {
+    const isCssVarSupport = window.CSS && window.CSS.supports && window.CSS.supports('--fake-var', '0')
     /**
      *
      * @type {boolean}
      * @private
      */
-    this.isCssVarSupport = window.CSS && window.CSS.supports && window.CSS.supports('--fake-var', '0')
+    this.isCssVarSupport = /** @type {boolean} */ (isCssVarSupport)
 
     /**
      *
@@ -35,7 +41,7 @@ export default class ResponsiveImg {
 
     /**
      *
-     * @type {HTMLCollectionOf<Element>}
+     * @type {Array<!HTMLElement>}
      * @private
      */
     this.wraps = Array.from(document.getElementsByClassName('js--imj-wrap'))
@@ -54,7 +60,7 @@ export default class ResponsiveImg {
   /**
    * @private
    */
-  lazyloadInit() {
+  lazyloadInit () {
     if (!('IntersectionObserver' in window)) {
       this.wraps.map((item) => {
         new ImgItem(
@@ -74,7 +80,7 @@ export default class ResponsiveImg {
     }
 
     this.observer = new IntersectionObserver(this.onIntersection.bind(this), config)
-    this.wraps.map((item) => {
+    this.wraps.map(item => {
       this.observer.observe(item)
     })
   }
@@ -91,8 +97,9 @@ export default class ResponsiveImg {
         return
       }
       this.observer.unobserve(entry.target)
+      const imgItem = /** @type {HTMLElement} */ (entry.target)
       new ImgItem(
-        entry.target,
+        imgItem,
         this.isCssVarSupport,
         this.pixelRatio,
         this.isWebPSupport

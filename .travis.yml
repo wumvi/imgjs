@@ -1,0 +1,15 @@
+sudo: required
+
+services:
+  - docker
+
+language: javascript
+
+before_install:
+    - docker pull wumvi/code.build
+
+before_script:
+    - travis_retry npm install
+
+script:
+    - docker run -v ./:/code/ wumvi/code.build npm test

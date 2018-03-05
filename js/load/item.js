@@ -3,7 +3,7 @@ import Size from './size.js'
 export default class ImgItem {
   /**
    *
-   * @param {Element} box
+   * @param {HTMLElement} box
    * @param {boolean} isCssVarSupport
    * @param {number} pixelRatio
    * @param {boolean} isWebPSupport
@@ -11,7 +11,7 @@ export default class ImgItem {
   constructor (box, isCssVarSupport, pixelRatio, isWebPSupport) {
     /**
      *
-     * @type {Element}
+     * @type {HTMLElement}
      * @private
      */
     this.box = box
@@ -63,7 +63,7 @@ export default class ImgItem {
      * @type {HTMLImageElement}
      * @private
      */
-    this.img = this.box.getElementsByClassName('js--imj-img')[0]
+    this.img = /** @type {HTMLImageElement} */ (this.box.getElementsByClassName('js--imj-img')[0])
 
     this.init()
   }
@@ -76,7 +76,7 @@ export default class ImgItem {
       this.box.style.maxWidth = getComputedStyle(this.box).getPropertyValue('--max-width')
     }
 
-    const sizeRaws = JSON.parse(this.box.getAttribute('data-size'))
+    const sizeRaws = /** @type {Object} */ (JSON.parse(this.box.getAttribute('data-size')))
     sizeRaws.map((sizeRaw) => {
       this.sizes.push(new Size(sizeRaw))
     })

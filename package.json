@@ -4,11 +4,31 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "php /gcc-webpack/run.php --in ./js/ --out /tmp/"
   },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/wumvi/imgjs.git"
+  },
+  "devDependencies": {
+    "webpack": "^4.1.0",
+    "webpack-cli": "^2.0.10",
+    "autoprefixer": "*",
+    "eslint": "^4.12.1",
+    "extract-text-webpack-plugin": "^3.0.2",
+    "optimize-css-assets-webpack-plugin": "^4.0.0",
+    "postcss-loader": "*",
+    "sass": "*",
+    "sass-loader": "*",
+    "css-loader": "*",
+    "eslint-config-standard": "^10.2.1",
+    "eslint-plugin-import": "^2.8.0",
+    "eslint-plugin-node": "^5.2.1",
+    "eslint-plugin-prettier": "^2.3.1",
+    "eslint-config-prettier": "^2.9.0",
+    "eslint-config-promise": "^1.2.3",
+    "eslint-plugin-promise": "^3.6.0",
+    "eslint-plugin-standard": "^3.0.1"
   },
   "author": "",
   "license": "MIT",

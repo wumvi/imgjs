@@ -1,0 +1,46 @@
+extends: standard
+
+parserOptions:
+  ecmaVersion: 6
+  sourceType: module
+
+rules:
+  no-unused-vars:
+  - error
+  - varsIgnorePattern: "(JsDoc$)|(^_)"
+
+  max-len:
+  - error
+  - 120
+
+  padding-line-between-statements:
+  - error
+  - blankLine: always
+    prev: "*"
+    next: return
+  - blankLine: always
+    prev: "*"
+    next: throw
+
+  no-alert:
+  - error
+
+  complexity:
+  - error
+  - max: 9
+
+  max-depth:
+  - error
+  - max: 3
+
+  max-params:
+  - error
+  - max: 5
+
+  max-nested-callbacks:
+  - error
+  - max: 2
+
+globals:
+  _: false
+  IntersectionObserver: false
