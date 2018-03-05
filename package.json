@@ -1,0 +1,19 @@
+{
+  "name": "imgjs",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/wumvi/imgjs.git"
+  },
+  "author": "",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/wumvi/imgjs/issues"
+  },
+  "homepage": "https://github.com/wumvi/imgjs#readme"
+}
