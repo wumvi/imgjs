@@ -76,9 +76,12 @@ export default class ImgItem {
       this.box.style.maxWidth = getComputedStyle(this.box).getPropertyValue('--max-width')
     }
 
-    const sizeRaws = /** @type {Object} */ (JSON.parse(this.box.getAttribute('data-size')))
-    sizeRaws.map((sizeRaw) => {
-      this.sizes.push(new Size(sizeRaw))
+    const sizeRaws = /** @type {!Object} */ (JSON.parse(this.box.getAttribute('data-size')))
+    const keys = /** @type {Array.<string>} */ (Object.keys(sizeRaws));
+    keys.map(size => {
+      const obj = {};
+      obj[size] = sizeRaws[size];
+      this.sizes.push(new Size(obj))
     })
 
     const imgWidth = ImgItem.getSize(this.sizes)

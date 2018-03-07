@@ -47,18 +47,8 @@ export default class ImgMakerTpl {
     const imgInfo = /** @type {Object} */ (JSON.parse(xhr.responseText))
     const imgJsonInfo = new ImgJsonInfo(imgInfo)
 
-    const sizesObject = []
-
-    const mediaToImgList = imgJsonInfo.getSizes()
-    const mediaNames = Object.keys(mediaToImgList)
-    mediaNames.map((media) => {
-      const obj = {}
-      obj[media] = mediaToImgList[media]
-      sizesObject.push(obj)
-    })
-
     let tpl = `<div class="imj-wrap js--imj-wrap" 
-                    data-size='${JSON.stringify(sizesObject)}' 
+                    data-size='${JSON.stringify(imgJsonInfo.getSizes())}' 
                     data-trsp="${imgJsonInfo.isTransparent().toString()}"
                     style="--ratio: ${imgJsonInfo.getRatio() * 100}%; --max-width: ${imgJsonInfo.getMaxSize()}px;" 
                     data-url="${partCdnUrl + imgJsonInfo.getName()}">
