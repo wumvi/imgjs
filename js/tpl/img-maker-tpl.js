@@ -50,6 +50,7 @@ export default class ImgMakerTpl {
     let tpl = `<div class="imj-wrap js--imj-wrap" 
                     data-size='${JSON.stringify(imgJsonInfo.getSizes())}' 
                     data-trsp="${imgJsonInfo.isTransparent().toString()}"
+                    data-modified="${imgJsonInfo.getModified()}"
                     style="--ratio: ${imgJsonInfo.getRatio() * 100}%; --max-width: ${imgJsonInfo.getMaxSize()}px;" 
                     data-url="${partCdnUrl + imgJsonInfo.getName()}">
                       <figure class="imj-figure">
