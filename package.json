@@ -1,6 +1,6 @@
 {
   "name": "@wumvi/imgjs",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "",
   "main": "index.js",
   "scripts": {
@@ -30,7 +30,7 @@
     "eslint-plugin-promise": "^3.6.0",
     "eslint-plugin-standard": "^3.0.1"
   },
-  "author": "",
+  "author": "Kozlenko Vitaliy",
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/wumvi/imgjs/issues"
