@@ -39,10 +39,10 @@ export default class ImgItem {
 
     /**
      *
-     * @type {boolean}
+     * @type {string}
      * @private
      */
-    this.isTransparent = this.box.getAttribute('data-mod') === 'true'
+    this.modified = this.box.getAttribute('data-modified')
 
     /**
      *
@@ -105,7 +105,7 @@ export default class ImgItem {
     })
     img.addEventListener('load', this.onImageSuccessLoaded.bind(this))
     img.onerror = this.onImageErrorLoaded.bind(this)
-    img.src = `${this.urlPart}-${imgWidth}-${this.pixelRatio}.${imgExt}?v=` + this.
+    img.src = `${this.urlPart}-${imgWidth}-${this.pixelRatio}.${imgExt}?v=` + this.modified
 
     this.initEvent()
   }
