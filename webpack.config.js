@@ -67,9 +67,9 @@ let cssConf = {
   entry: yaml.safeLoad(fs.readFileSync('sass/bundles-config.yaml', 'utf8')),
 
   output: {
-    path: __dirname + '/public/res/css/',
+    path: __dirname + '/bin/',
     publicPath: '/public/res/css/',
-    filename: '[name].css'
+    filename: '[name].min.css'
   },
 
   plugins: [
@@ -78,13 +78,13 @@ let cssConf = {
       filename: '[name].css',
       disable: false,
       allChunks: true
+    }),
+    new OptimizeCssAssetsPlugin({
+        assetNameRegExp: /.css$/g,
+        cssProcessor: require('cssnano'),
+        cssProcessorOptions: {discardComments: {removeAll: true}},
+        canPrint: false
     })
-    // new OptimizeCssAssetsPlugin({
-    //     assetNameRegExp: /.css$/g,
-    //     cssProcessor: require('cssnano'),
-    //     cssProcessorOptions: {discardComments: {removeAll: true}},
-    //     canPrint: false
-    // })
   ],
 
   module: {

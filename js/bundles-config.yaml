@@ -1,2 +1,2 @@
-tpl: tpl/img-maker-tpl
-load: load/responsive-img
+tpl: tpl/run
+load: load/run

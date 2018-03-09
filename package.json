@@ -1,10 +1,10 @@
 {
   "name": "@wumvi/imgjs",
-  "version": "1.0.4",
+  "version": "1.0.5",
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "php /gcc-webpack/run.php --in ./js/ --out /tmp/"
+    "build": "php /gcc-webpack/run.php --in ./js/ --out ./bin/ && echo DEV_MODE=prod ./node_modules/webpack/bin/webpack.js"
   },
   "repository": {
     "type": "git",
